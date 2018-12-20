@@ -9,6 +9,7 @@ var Js_json = require("bs-platform/lib/js/js_json.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
 var Js_primitive = require("bs-platform/lib/js/js_primitive.js");
 var ReasonApollo = require("reason-apollo/src/ReasonApollo.bs.js");
+var Button$ReactTemplate = require("./Button.bs.js");
 
 var ppx_printed_query = "query getAllStops  {\nstops  {\ngtfsId  \nname  \nlat  \nlon  \n}\n\n}\n";
 
@@ -179,11 +180,13 @@ function make$1() {
                               onChange: (function ($$event) {
                                   return Curry._1(self[/* send */3], /* InputChange */[$$event.target.value]);
                                 })
-                            }), React.createElement("button", {
-                              onClick: (function () {
-                                  return Curry._1(self[/* send */3], /* Toggle */1);
-                                })
-                            }, "Toggle greeting"), match ? self[/* state */1][/* greeting */2] : null);
+                            }), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function () {
+                                    return Curry._1(self[/* send */3], /* Toggle */1);
+                                  }), undefined, undefined, /* Primary */1, /* array */["Toggle greeting"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function () {
+                                    return Curry._1(self[/* send */3], /* Toggle */1);
+                                  }), true, undefined, undefined, /* array */[React.createElement("div", undefined, "Toggle greeting")])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function () {
+                                    return Curry._1(self[/* send */3], /* Toggle */1);
+                                  }), true, undefined, undefined, /* array */[])), match ? self[/* state */1][/* greeting */2] : null);
             }),
           /* initialState */(function () {
               return /* record */[

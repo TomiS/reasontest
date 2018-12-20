@@ -75,9 +75,13 @@ let make = _children => {
             self.send(InputChange(ReactEvent.Form.target(event)##value))
         }
       />
-      <button onClick={_event => self.send(Toggle)}>
+      <Button onClick={_event => self.send(Toggle)} bsStyle=Primary>
         {ReasonReact.string("Toggle greeting")}
-      </button>
+      </Button>
+      <Button onClick={_event => self.send(Toggle)} disabled=true>
+        <div> {ReasonReact.string("Toggle greeting")} </div>
+      </Button>
+      <Button onClick={_event => self.send(Toggle)} disabled=true />
       {
         self.state.show ?
           ReasonReact.string(self.state.greeting) : ReasonReact.null
