@@ -5,28 +5,6 @@ import * as React from "react";
 import * as ReactDOMRe from "reason-react/src/ReactDOMRe.js";
 import * as ReasonReact from "reason-react/src/ReasonReact.js";
 
-function getStyleString(style) {
-  switch (style) {
-    case 0 : 
-        return "default";
-    case 1 : 
-        return "primary";
-    case 2 : 
-        return "success";
-    case 3 : 
-        return "warning";
-    case 4 : 
-        return "danger";
-    case 5 : 
-        return "inverse";
-    case 6 : 
-        return "minimal";
-    case 7 : 
-        return "link";
-    
-  }
-}
-
 var component = ReasonReact.statelessComponent("Button");
 
 function getBackgroundColor(bsStyle) {
@@ -130,7 +108,6 @@ function make(onClick, $staropt$star, $staropt$star$1, $staropt$star$2, _childre
 }
 
 export {
-  getStyleString ,
   component ,
   Styles ,
   make ,

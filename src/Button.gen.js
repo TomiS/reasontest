@@ -22,53 +22,53 @@ import type {Mouse_t as ReactEvent_Mouse_t} from './ReactEvent.shim';
 // flowlint-next-line nonstrict-import:off
 import type {reactElement as ReasonReact_reactElement} from './ReactShim.shim';
 
-export opaque type AnyStyleDefault = mixed;
+export opaque type BsStyleDefault = mixed;
 
-export const Default: AnyStyleDefault = 0;
+export const Default: BsStyleDefault = 0;
 
-export opaque type AnyStylePrimary = mixed;
+export opaque type BsStylePrimary = mixed;
 
-export const Primary: AnyStylePrimary = 1;
+export const Primary: BsStylePrimary = 1;
 
-export opaque type AnyStyleSuccess = mixed;
+export opaque type BsStyleSuccess = mixed;
 
-export const Success: AnyStyleSuccess = 2;
+export const Success: BsStyleSuccess = 2;
 
-export opaque type AnyStyleWarning = mixed;
+export opaque type BsStyleWarning = mixed;
 
-export const Warning: AnyStyleWarning = 3;
+export const Warning: BsStyleWarning = 3;
 
-export opaque type AnyStyleDanger = mixed;
+export opaque type BsStyleDanger = mixed;
 
-export const Danger: AnyStyleDanger = 4;
+export const Danger: BsStyleDanger = 4;
 
-export opaque type AnyStyleInverse = mixed;
+export opaque type BsStyleInverse = mixed;
 
-export const Inverse: AnyStyleInverse = 5;
+export const Inverse: BsStyleInverse = 5;
 
-export opaque type AnyStyleMinimal = mixed;
+export opaque type BsStyleMinimal = mixed;
 
-export const Minimal: AnyStyleMinimal = 6;
+export const Minimal: BsStyleMinimal = 6;
 
-export opaque type AnyStyleLink = mixed;
+export opaque type BsStyleLink = mixed;
 
-export const Link: AnyStyleLink = 7;
+export const Link: BsStyleLink = 7;
 
-export type anyStyle =
-  | AnyStyleDefault
-  | AnyStylePrimary
-  | AnyStyleSuccess
-  | AnyStyleWarning
-  | AnyStyleDanger
-  | AnyStyleInverse
-  | AnyStyleMinimal
-  | AnyStyleLink;
+export type bsStyle =
+  | BsStyleDefault
+  | BsStylePrimary
+  | BsStyleSuccess
+  | BsStyleWarning
+  | BsStyleDanger
+  | BsStyleInverse
+  | BsStyleMinimal
+  | BsStyleLink;
 
 export type Props = {|
   +onClick: (ReactEvent_Mouse_t) => void, 
   +disabled?: boolean, 
   +caret?: boolean, 
-  +bsStyle?: anyStyle, 
+  +bsStyle?: bsStyle, 
   +children?: Array<ReasonReact_reactElement>
 |};
 

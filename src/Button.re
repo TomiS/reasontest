@@ -1,4 +1,4 @@
-type anyStyle =
+type bsStyle =
   | Default
   | Primary
   | Success
@@ -8,17 +8,19 @@ type anyStyle =
   | Minimal
   | Link;
 
-let getStyleString = (~style: anyStyle) =>
-  switch (style) {
-  | Default => "default"
-  | Primary => "primary"
-  | Success => "success"
-  | Warning => "warning"
-  | Danger => "danger"
-  | Inverse => "inverse"
-  | Minimal => "minimal"
-  | Link => "link"
-  };
+/*
+ let getStyleString = (~style: bsStyle) =>
+   switch (style) {
+   | Default => "default"
+   | Primary => "primary"
+   | Success => "success"
+   | Warning => "warning"
+   | Danger => "danger"
+   | Inverse => "inverse"
+   | Minimal => "minimal"
+   | Link => "link"
+   };
+ */
 
 type anySize =
   | Normal
@@ -74,7 +76,7 @@ let make =
         ~hidden=false,
         ~bsSize: anySize=Normal,
        */
-      ~bsStyle: anyStyle=Default,
+      ~bsStyle: bsStyle=Default,
       _children,
     ) => {
   ...component,
