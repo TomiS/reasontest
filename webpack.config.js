@@ -11,4 +11,22 @@ module.exports = {
     publicPath: outputDir,
     filename: 'Index.js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.gen.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-flow",
+              "@babel/preset-react"
+            ]
+          }
+        }
+      }
+    ]
+  }
 };

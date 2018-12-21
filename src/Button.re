@@ -8,6 +8,18 @@ type anyStyle =
   | Minimal
   | Link;
 
+let getStyleString = (~style: anyStyle) =>
+  switch (style) {
+  | Default => "default"
+  | Primary => "primary"
+  | Success => "success"
+  | Warning => "warning"
+  | Danger => "danger"
+  | Inverse => "inverse"
+  | Minimal => "minimal"
+  | Link => "link"
+  };
+
 type anySize =
   | Normal
   | Small
@@ -50,6 +62,7 @@ module Styles = {
     ]);
 };
 
+[@genType]
 let make =
     (
       ~onClick,

@@ -9,12 +9,13 @@
   },
   "package-specs": [
     {
-      "module": "commonjs",
+      "module": "es6",
       "in-source": true
     }
   ],
   "suffix": ".bs.js",
   "namespace": true,
+  "bsc-flags": ["-bs-super-errors"],
   "bs-dependencies": [
     "reason-react",
     "reason-apollo",
@@ -23,5 +24,22 @@
   "ppx-flags": [
     "graphql_ppx/ppx"
   ],
-  "refmt": 3
+  "refmt": 3,
+  "gentypeconfig": {
+    "language": "flow",
+    "module": "es6",
+    "shims": {
+      "Js": "Js",
+      "Obj": "Obj",
+      "React": "ReactShim",
+      "ReactEvent": "ReactEvent",
+      "ReasonPervasives": "ReasonPervasives",
+      "ReasonReact": "ReactShim"
+    },
+    "debug": {
+      "all": false,
+      "basic": false
+    },
+    "exportInterfaces": false
+  }
 }
