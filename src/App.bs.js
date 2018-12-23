@@ -3,147 +3,13 @@
 import * as Block from "bs-platform/lib/es6/block.js";
 import * as Curry from "bs-platform/lib/es6/curry.js";
 import * as React from "react";
-import * as Js_exn from "bs-platform/lib/es6/js_exn.js";
-import * as Js_dict from "bs-platform/lib/es6/js_dict.js";
-import * as Js_json from "bs-platform/lib/es6/js_json.js";
-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 import * as ReasonReact from "reason-react/src/ReasonReact.js";
-import * as ReasonApollo from "reason-apollo/src/ReasonApollo.bs.js";
 import * as Button$ReactTemplate from "./Button.bs.js";
+import * as ReactJsComponentGen from "./ReactJsComponent.gen";
 
-var ppx_printed_query = "query getAllStops  {\nstops  {\ngtfsId  \nname  \nlat  \nlon  \n}\n\n}\n";
+var component = ReasonReact.reducerComponent("App");
 
-function parse(value) {
-  var match = Js_json.decodeObject(value);
-  if (match !== undefined) {
-    var match$1 = Js_dict.get(Caml_option.valFromOption(match), "stops");
-    var tmp;
-    if (match$1 !== undefined) {
-      var value$1 = Caml_option.valFromOption(match$1);
-      var match$2 = Js_json.decodeNull(value$1);
-      if (match$2 !== undefined) {
-        tmp = undefined;
-      } else {
-        var match$3 = Js_json.decodeArray(value$1);
-        tmp = match$3 !== undefined ? match$3.map((function (value) {
-                  var match = Js_json.decodeNull(value);
-                  if (match !== undefined) {
-                    return undefined;
-                  } else {
-                    var match$1 = Js_json.decodeObject(value);
-                    var tmp;
-                    if (match$1 !== undefined) {
-                      var value$1 = Caml_option.valFromOption(match$1);
-                      var match$2 = Js_dict.get(value$1, "gtfsId");
-                      var tmp$1;
-                      if (match$2 !== undefined) {
-                        var value$2 = Caml_option.valFromOption(match$2);
-                        var match$3 = Js_json.decodeString(value$2);
-                        tmp$1 = match$3 !== undefined ? match$3 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(value$2));
-                      } else {
-                        tmp$1 = Js_exn.raiseError("graphql_ppx: Field gtfsId on type Stop is missing");
-                      }
-                      var match$4 = Js_dict.get(value$1, "name");
-                      var tmp$2;
-                      if (match$4 !== undefined) {
-                        var value$3 = Caml_option.valFromOption(match$4);
-                        var match$5 = Js_json.decodeString(value$3);
-                        tmp$2 = match$5 !== undefined ? match$5 : Js_exn.raiseError("graphql_ppx: Expected string, got " + JSON.stringify(value$3));
-                      } else {
-                        tmp$2 = Js_exn.raiseError("graphql_ppx: Field name on type Stop is missing");
-                      }
-                      var match$6 = Js_dict.get(value$1, "lat");
-                      var tmp$3;
-                      if (match$6 !== undefined) {
-                        var value$4 = Caml_option.valFromOption(match$6);
-                        var match$7 = Js_json.decodeNull(value$4);
-                        if (match$7 !== undefined) {
-                          tmp$3 = undefined;
-                        } else {
-                          var match$8 = Js_json.decodeNumber(value$4);
-                          tmp$3 = match$8 !== undefined ? match$8 : Js_exn.raiseError("graphql_ppx: Expected float, got " + JSON.stringify(value$4));
-                        }
-                      } else {
-                        tmp$3 = undefined;
-                      }
-                      var match$9 = Js_dict.get(value$1, "lon");
-                      var tmp$4;
-                      if (match$9 !== undefined) {
-                        var value$5 = Caml_option.valFromOption(match$9);
-                        var match$10 = Js_json.decodeNull(value$5);
-                        if (match$10 !== undefined) {
-                          tmp$4 = undefined;
-                        } else {
-                          var match$11 = Js_json.decodeNumber(value$5);
-                          tmp$4 = match$11 !== undefined ? match$11 : Js_exn.raiseError("graphql_ppx: Expected float, got " + JSON.stringify(value$5));
-                        }
-                      } else {
-                        tmp$4 = undefined;
-                      }
-                      tmp = {
-                        gtfsId: tmp$1,
-                        name: tmp$2,
-                        lat: tmp$3,
-                        lon: tmp$4
-                      };
-                    } else {
-                      tmp = Js_exn.raiseError("graphql_ppx: Object is not a value");
-                    }
-                    return Caml_option.some(tmp);
-                  }
-                })) : Js_exn.raiseError("graphql_ppx: Expected array, got " + JSON.stringify(value$1));
-      }
-    } else {
-      tmp = undefined;
-    }
-    return {
-            stops: tmp
-          };
-  } else {
-    return Js_exn.raiseError("graphql_ppx: Object is not a value");
-  }
-}
-
-function make(param) {
-  return {
-          query: ppx_printed_query,
-          variables: null,
-          parse: parse
-        };
-}
-
-function makeWithVariables(param) {
-  return {
-          query: ppx_printed_query,
-          variables: null,
-          parse: parse
-        };
-}
-
-function ret_type(f) {
-  return /* module */[];
-}
-
-var MT_Ret = /* module */[];
-
-var GetStops = /* module */[
-  /* ppx_printed_query */ppx_printed_query,
-  /* query */ppx_printed_query,
-  /* parse */parse,
-  /* make */make,
-  /* makeWithVariables */makeWithVariables,
-  /* ret_type */ret_type,
-  /* MT_Ret */MT_Ret
-];
-
-var GetStopsQuery = ReasonApollo.CreateQuery([
-      ppx_printed_query,
-      parse
-    ]);
-
-var component = ReasonReact.reducerComponent("Example");
-
-function make$1(_children) {
+function make(_children) {
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -155,32 +21,8 @@ function make$1(_children) {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (self) {
-              var getStopsQuery = make(/* () */0);
               var match = self[/* state */1][/* show */1];
-              return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, Curry.app(GetStopsQuery[/* make */3], [
-                                  Caml_option.some(getStopsQuery.variables),
-                                  undefined,
-                                  undefined,
-                                  undefined,
-                                  undefined,
-                                  undefined,
-                                  undefined,
-                                  undefined,
-                                  undefined,
-                                  (function (param) {
-                                      var result = param[/* result */0];
-                                      if (typeof result === "number") {
-                                        return React.createElement("div", undefined, "Loading");
-                                      } else if (result.tag) {
-                                        console.log(result[0].stops);
-                                        return React.createElement("ul", {
-                                                    className: "list"
-                                                  });
-                                      } else {
-                                        return React.createElement("div", undefined, result[0].message);
-                                      }
-                                    })
-                                ])), React.createElement("input", {
+              return React.createElement("div", undefined, React.createElement("input", {
                               value: self[/* state */1][/* greeting */2],
                               onChange: (function ($$event) {
                                   return Curry._1(self[/* send */3], /* InputChange */[$$event.target.value]);
@@ -191,7 +33,7 @@ function make$1(_children) {
                                     return Curry._1(self[/* send */3], /* Toggle */1);
                                   }), true, undefined, undefined, /* array */[React.createElement("div", undefined, "Toggle greeting")])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
                                     return Curry._1(self[/* send */3], /* Toggle */1);
-                                  }), true, undefined, undefined, /* array */[])), match ? self[/* state */1][/* greeting */2] : null);
+                                  }), true, undefined, undefined, /* array */[])), ReasonReact.element(undefined, undefined, ReactJsComponentGen.make(false, /* array */[])), match ? self[/* state */1][/* greeting */2] : null);
             }),
           /* initialState */(function (param) {
               return /* record */[
@@ -229,10 +71,8 @@ function make$1(_children) {
 }
 
 export {
-  GetStops ,
-  GetStopsQuery ,
   component ,
-  make$1 as make,
+  make ,
   
 }
-/* GetStopsQuery Not a pure module */
+/* component Not a pure module */

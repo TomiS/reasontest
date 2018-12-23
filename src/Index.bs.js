@@ -2,11 +2,9 @@
 
 import * as ReactDOMRe from "reason-react/src/ReactDOMRe.js";
 import * as ReasonReact from "reason-react/src/ReasonReact.js";
-import * as ApolloProvider from "reason-apollo/src/ApolloProvider.bs.js";
 import * as App$ReactTemplate from "./App.bs.js";
-import * as Client$ReactTemplate from "./Client.bs.js";
 
-ReactDOMRe.renderToElementWithId(ReasonReact.element(undefined, undefined, ApolloProvider.make(Client$ReactTemplate.instance, /* array */[ReasonReact.element(undefined, undefined, App$ReactTemplate.make(/* array */[]))])), "app");
+ReactDOMRe.renderToElementWithId(ReasonReact.element(undefined, undefined, App$ReactTemplate.make(/* array */[])), "app");
 
 export {
   

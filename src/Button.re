@@ -8,20 +8,6 @@ type bsStyle =
   | Minimal
   | Link;
 
-/*
- let getStyleString = (~style: bsStyle) =>
-   switch (style) {
-   | Default => "default"
-   | Primary => "primary"
-   | Success => "success"
-   | Warning => "warning"
-   | Danger => "danger"
-   | Inverse => "inverse"
-   | Minimal => "minimal"
-   | Link => "link"
-   };
- */
-
 type anySize =
   | Normal
   | Small
@@ -37,7 +23,7 @@ module Styles = {
     switch (bsStyle) {
     | Default => gray
     | Primary => green
-    | Success => lightgreen
+    | Success => green
     | Warning => yellow
     | Danger => red
     | Inverse => white

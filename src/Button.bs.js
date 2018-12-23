@@ -12,9 +12,8 @@ function getBackgroundColor(bsStyle) {
     case 0 : 
         return Css.gray;
     case 1 : 
-        return Css.green;
     case 2 : 
-        return Css.lightgreen;
+        return Css.green;
     case 3 : 
         return Css.yellow;
     case 4 : 

@@ -1,27 +1,3 @@
-/*
- type stop = {
-   gtfsId: string,
-   name: string,
-   lat: option(float),
-   lon: option(float),
- };
- */
-
-module GetStops = [%graphql
-  {|
-    query getAllStops {
-      stops {
-        gtfsId
-        name
-        lat
-        lon
-      }
-    }
-  |}
-];
-
-module GetStopsQuery = ReasonApollo.CreateQuery(GetStops);
-
 /* State declaration */
 type state = {
   count: int,
@@ -37,7 +13,7 @@ type action =
 
 /* Component template declaration.
    Needs to be **after** state and action declarations! */
-let component = ReasonReact.reducerComponent("Example");
+let component = ReasonReact.reducerComponent("App");
 
 /* greeting and children are props. `children` isn't used, therefore ignored.
    We ignore it by prepending it with an underscore */
@@ -53,26 +29,11 @@ let make = _children => {
     | Toggle => ReasonReact.Update({...state, show: !state.show})
     },
   render: self => {
-    let getStopsQuery = GetStops.make();
     <div>
-      <GetStopsQuery variables=getStopsQuery##variables>
-        ...{
-             ({result}) =>
-               switch (result) {
-               | Loading => <div> {ReasonReact.string("Loading")} </div>
-               | Error(error) =>
-                 <div> {ReasonReact.string(error##message)} </div>
-               | Data(response) =>
-                 Js.log(response##stops);
-                 <ul className="list" />;
-               }
-           }
-      </GetStopsQuery>
       <input
         value={self.state.greeting}
-        onChange={
-          event =>
-            self.send(InputChange(ReactEvent.Form.target(event)##value))
+        onChange={event =>
+          self.send(InputChange(ReactEvent.Form.target(event)##value))
         }
       />
       <Button onClick={_event => self.send(Toggle)} bsStyle=Primary>
@@ -82,10 +43,9 @@ let make = _children => {
         <div> {ReasonReact.string("Toggle greeting")} </div>
       </Button>
       <Button onClick={_event => self.send(Toggle)} disabled=true />
-      {
-        self.state.show ?
-          ReasonReact.string(self.state.greeting) : ReasonReact.null
-      }
+      <ReactJsComponent hide=false />
+      {self.state.show ?
+         ReasonReact.string(self.state.greeting) : ReasonReact.null}
     </div>;
   },
 };
