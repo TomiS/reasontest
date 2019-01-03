@@ -1,17 +1,15 @@
-type bsStyle =
-  | Default
-  | Primary
-  | Success
-  | Warning
-  | Danger
-  | Inverse
-  | Minimal
-  | Link;
+type bsStyle = [
+  | `default
+  | `primary
+  | `success
+  | `warning
+  | `danger
+  | `inverse
+  | `minimal
+  | `link
+];
 
-type anySize =
-  | Normal
-  | Small
-  | Xs;
+type bsSize = [ | `normal | `small | `xs];
 
 let component = ReasonReact.statelessComponent("Button");
 
@@ -21,14 +19,14 @@ module Styles = {
 
   let getBackgroundColor = (~bsStyle) =>
     switch (bsStyle) {
-    | Default => gray
-    | Primary => green
-    | Success => green
-    | Warning => yellow
-    | Danger => red
-    | Inverse => white
-    | Minimal => white
-    | Link => white
+    | `default => gray
+    | `primary => green
+    | `success => green
+    | `warning => yellow
+    | `danger => red
+    | `inverse => white
+    | `minimal => white
+    | `link => white
     };
 
   let button = (~disabled, ~bsStyle) =>
@@ -60,9 +58,9 @@ let make =
         ~icon=None,
         ~tall=false,
         ~hidden=false,
-        ~bsSize: anySize=Normal,
+        ~bsSize: bsSize=`normal,
        */
-      ~bsStyle: bsStyle=Default,
+      ~bsStyle: bsStyle=`default,
       _children,
     ) => {
   ...component,

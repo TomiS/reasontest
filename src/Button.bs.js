@@ -8,21 +8,26 @@ import * as ReasonReact from "reason-react/src/ReasonReact.js";
 var component = ReasonReact.statelessComponent("Button");
 
 function getBackgroundColor(bsStyle) {
-  switch (bsStyle) {
-    case 0 : 
-        return Css.gray;
-    case 1 : 
-    case 2 : 
-        return Css.green;
-    case 3 : 
-        return Css.yellow;
-    case 4 : 
-        return Css.red;
-    case 5 : 
-    case 6 : 
-    case 7 : 
+  if (bsStyle >= 465819841) {
+    if (bsStyle >= 944645571) {
+      if (bsStyle >= 1039223728) {
         return Css.white;
-    
+      } else {
+        return Css.green;
+      }
+    } else if (bsStyle >= 512905955) {
+      return Css.red;
+    } else {
+      return Css.gray;
+    }
+  } else if (bsStyle !== 58474434) {
+    if (bsStyle >= 164354652) {
+      return Css.yellow;
+    } else {
+      return Css.white;
+    }
+  } else {
+    return Css.green;
   }
 }
 
@@ -80,7 +85,7 @@ var Styles = /* module */[
 function make(onClick, $staropt$star, $staropt$star$1, $staropt$star$2, _children) {
   var disabled = $staropt$star !== undefined ? $staropt$star : false;
   var caret = $staropt$star$1 !== undefined ? $staropt$star$1 : false;
-  var bsStyle = $staropt$star$2 !== undefined ? $staropt$star$2 : /* Default */0;
+  var bsStyle = $staropt$star$2 !== undefined ? $staropt$star$2 : /* default */465819841;
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],

@@ -12,7 +12,7 @@ class ReactJsComponent extends React.PureComponent<Props> {
       return null;
     }
     return (
-      <Button>Button from JS Component</Button>
+      <Button bsStyle='danger'>Button from JS Component</Button>
     );
   }
 }

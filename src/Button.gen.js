@@ -4,11 +4,10 @@
  * @nolint
  */
 
-// $FlowExpectedError: Reason checked type sufficiently
-import * as ButtonBS from './Button.bs';
+const $$toRE274034055 = {"default": 465819841, "primary": 58474434, "success": 944645571, "warning": 164354652, "danger": 512905955, "inverse": 1039223728, "minimal": -873810847, "link": -944564230};
 
 // $FlowExpectedError: Reason checked type sufficiently
-import * as CreateBucklescriptBlock from 'bs-platform/lib/es6/block.js';
+import * as ButtonBS from './Button.bs';
 
 // $FlowExpectedError: Reason checked type sufficiently
 import * as Curry from 'bs-platform/lib/es6/curry.js';
@@ -22,47 +21,7 @@ import type {Mouse_t as ReactEvent_Mouse_t} from './ReactEvent.shim';
 // flowlint-next-line nonstrict-import:off
 import type {reactElement as ReasonReact_reactElement} from './ReactShim.shim';
 
-export opaque type BsStyleDefault = mixed;
-
-export const Default: BsStyleDefault = 0;
-
-export opaque type BsStylePrimary = mixed;
-
-export const Primary: BsStylePrimary = 1;
-
-export opaque type BsStyleSuccess = mixed;
-
-export const Success: BsStyleSuccess = 2;
-
-export opaque type BsStyleWarning = mixed;
-
-export const Warning: BsStyleWarning = 3;
-
-export opaque type BsStyleDanger = mixed;
-
-export const Danger: BsStyleDanger = 4;
-
-export opaque type BsStyleInverse = mixed;
-
-export const Inverse: BsStyleInverse = 5;
-
-export opaque type BsStyleMinimal = mixed;
-
-export const Minimal: BsStyleMinimal = 6;
-
-export opaque type BsStyleLink = mixed;
-
-export const Link: BsStyleLink = 7;
-
-export type bsStyle =
-  | BsStyleDefault
-  | BsStylePrimary
-  | BsStyleSuccess
-  | BsStyleWarning
-  | BsStyleDanger
-  | BsStyleInverse
-  | BsStyleMinimal
-  | BsStyleLink;
+export type bsStyle = "default" | "primary" | "success" | "warning" | "danger" | "inverse" | "minimal" | "link";
 
 export type Props = {|
   +onClick: (ReactEvent_Mouse_t) => void, 
@@ -75,7 +34,7 @@ export type Props = {|
 export const component: React$ComponentType<Props> = ReasonReact.wrapReasonForJs(
   ButtonBS.component,
   (function _(jsProps: Props) {
-     return Curry._5(ButtonBS.make, jsProps.onClick, jsProps.disabled, jsProps.caret, jsProps.bsStyle, jsProps.children);
+     return Curry._5(ButtonBS.make, jsProps.onClick, jsProps.disabled, jsProps.caret, $$toRE274034055[jsProps.bsStyle], jsProps.children);
   }));
 
 export default component;
