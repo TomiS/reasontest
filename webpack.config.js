@@ -17,16 +17,16 @@ module.exports = {
     // path: outputDir,
     // publicPath: outputDir,
     publicPath: '/',
-    filename: 'Index.js',
+    filename: 'Index.bs.js',
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: outputDir,
+    // contentBase: outputDir,
     port: 9000,
-    // hot: true,
-    publicPath: outputDir,
+    hot: true,
+    // publicPath: outputDir,
     // index: 'index.html'
-    // inline: true,
+    inline: true,
     historyApiFallback: true
   },
   module: {
@@ -53,6 +53,6 @@ module.exports = {
       title: 'Hot Module Replacement',
       template: 'src/index.html',
     }),
-    // new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ]
 };

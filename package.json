@@ -6,7 +6,7 @@
     "start": "export BS_CMT_POST_PROCESS_CMD=\"gentype\" && bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack-dev-server --open",
+    "webpack": "webpack-dev-server",
     "webpack:watch": "webpack -w",
     "webpack:production": "NODE_ENV=production webpack"
   },

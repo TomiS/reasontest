@@ -31,7 +31,7 @@ function make(_children) {
                                     return Curry._1(self[/* send */3], /* Toggle */1);
                                   }), undefined, undefined, /* warning */164354652, /* array */["First Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
                                     return Curry._1(self[/* send */3], /* Toggle */1);
-                                  }), true, undefined, /* primary */58474434, /* array */[React.createElement("div", undefined, "Second Button")])), ReasonReact.element(undefined, undefined, ReactJsComponentGen.make(false, /* array */[])), match ? self[/* state */1][/* greeting */2] : null);
+                                  }), true, undefined, /* warning */164354652, /* array */[React.createElement("div", undefined, "Second Button")])), ReasonReact.element(undefined, undefined, ReactJsComponentGen.make(false, /* array */[])), match ? self[/* state */1][/* greeting */2] : null);
             }),
           /* initialState */(function (param) {
               return /* record */[
