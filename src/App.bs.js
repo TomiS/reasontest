@@ -27,11 +27,11 @@ function make(_children) {
                               onChange: (function ($$event) {
                                   return Curry._1(self[/* send */3], /* InputChange */[$$event.target.value]);
                                 })
-                            }), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
+                            }), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, /* help */-989121855, undefined, /* array */["Help Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
                                     return Curry._1(self[/* send */3], /* Toggle */1);
-                                  }), undefined, undefined, undefined, /* warning */164354652, /* array */["First Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
+                                  }), undefined, undefined, /* warning */164354652, /* warning */164354652, /* array */["First Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
                                     return Curry._1(self[/* send */3], /* Toggle */1);
-                                  }), true, undefined, /* warning */164354652, /* warning */164354652, /* array */[React.createElement("div", undefined, "Second Button")])), ReasonReact.element(undefined, undefined, ReactJsComponentGen.make(false, /* array */[])), match ? self[/* state */1][/* greeting */2] : null);
+                                  }), true, undefined, /* success */944645571, /* success */944645571, /* array */[React.createElement("div", undefined, "Second Button")])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, /* danger */512905955, /* danger */512905955, /* array */["Danger Button"])), ReasonReact.element(undefined, undefined, ReactJsComponentGen.make(false, /* array */[])), match ? self[/* state */1][/* greeting */2] : null);
             }),
           /* initialState */(function (param) {
               return /* record */[

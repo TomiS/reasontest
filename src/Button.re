@@ -51,13 +51,20 @@ module Styles = {
 [@genType]
 let make =
     (
-      ~onClick,
+      ~onClick=?,
       ~disabled=false,
       ~caret=false,
       ~icon=?,
       ~bsStyle: bsStyle=`default,
       _children,
     ) => {
+  let onButtonClick = (event, self) => {
+    switch (onClick) {
+    | None => ()
+    | Some(onClick) => onClick(event)
+    };
+    Js.log(self);
+  };
   let iconEl = _ =>
     switch (icon) {
     | None => ReasonReact.null
@@ -67,7 +74,9 @@ let make =
     ...component,
 
     render: self =>
-      <button onClick className={Styles.button(~disabled, ~bsStyle)}>
+      <button
+        onClick={self.handle(onButtonClick)}
+        className={Styles.button(~disabled, ~bsStyle)}>
         {iconEl(self)}
         <span> ..._children </span>
         {caret ? <span className="caret" /> : ReasonReact.null}

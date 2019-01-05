@@ -7,39 +7,24 @@ import * as Icons$ReactTemplate from "./config/Icons.bs.js";
 
 var component = ReasonReact.statelessComponent("Icon");
 
-function button(disabled, bsStyle) {
+function svg(disabled, bsSize) {
   return Css.style(/* :: */[
-              Css.position(Css.relative),
+              Css.width(Css.px(20)),
               /* :: */[
-                Css.display(Css.inlineBlock),
+                Css.height(Css.px(20)),
                 /* :: */[
-                  Css.boxShadow(undefined, Css.px(1), undefined, undefined, true, Css.rgba(255, 255, 255, 0.1)),
+                  Css.position(Css.relative),
                   /* :: */[
-                    Css.borderWidth(Css.px(1)),
+                    Css.display(Css.inlineBlock),
                     /* :: */[
                       Css.marginBottom(Css.zero),
                       /* :: */[
-                        Css.borderColor(Css.green),
+                        Css.textAlign(Css.center),
                         /* :: */[
-                          Css.borderBottomColor(Css.red),
+                          Css.verticalAlign(Css.textTop),
                           /* :: */[
-                            Css.textAlign(Css.center),
-                            /* :: */[
-                              Css.verticalAlign(Css.middle),
-                              /* :: */[
-                                Css.cursor(disabled ? /* notAllowed */939907157 : /* pointer */-786317123),
-                                /* :: */[
-                                  Css.backgroundImage(Css.none),
-                                  /* :: */[
-                                    Css.borderStyle(Css.solid),
-                                    /* :: */[
-                                      Css.whiteSpace(Css.nowrap),
-                                      /* [] */0
-                                    ]
-                                  ]
-                                ]
-                              ]
-                            ]
+                            Css.whiteSpace(Css.nowrap),
+                            /* [] */0
                           ]
                         ]
                       ]
@@ -50,9 +35,11 @@ function button(disabled, bsStyle) {
             ]);
 }
 
-var Styles = /* module */[/* button */button];
+var Styles = /* module */[/* svg */svg];
 
-function make(iconType, onClick, $staropt$star, $staropt$star$1, _children) {
+function make(iconType, $staropt$star, $staropt$star$1, _children) {
+  var disabled = $staropt$star !== undefined ? $staropt$star : false;
+  var bsSize = $staropt$star$1 !== undefined ? $staropt$star$1 : /* normal */812216871;
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -65,6 +52,7 @@ function make(iconType, onClick, $staropt$star, $staropt$star$1, _children) {
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (param) {
               return React.createElement("svg", {
+                          className: svg(disabled, bsSize),
                           viewBox: "0 0 1024 1024",
                           xmlns: "http://www.w3.org/2000/svg"
                         }, React.createElement("path", {

@@ -27,7 +27,7 @@ import type {reactElement as ReasonReact_reactElement} from './ReactShim.shim';
 export type bsStyle = "default" | "primary" | "success" | "warning" | "danger" | "inverse" | "minimal" | "link";
 
 export type Props = {|
-  +onClick: (ReactEvent_Mouse_t) => void, 
+  +onClick?: (ReactEvent_Mouse_t) => void, 
   +disabled?: boolean, 
   +caret?: boolean, 
   +icon?: ReactTemplate_Icons_iconType, 

@@ -36,15 +36,20 @@ let make = _children => {
           self.send(InputChange(ReactEvent.Form.target(event)##value))
         }
       />
-      <Button onClick={_event => self.send(Toggle)} bsStyle=`warning>
+      <Button icon=`help> {ReasonReact.string("Help Button")} </Button>
+      <Button
+        onClick={_event => self.send(Toggle)} bsStyle=`warning icon=`warning>
         {ReasonReact.string("First Button")}
       </Button>
       <Button
-        icon=`warning
+        icon=`success
         onClick={_event => self.send(Toggle)}
         disabled=true
-        bsStyle=`warning>
+        bsStyle=`success>
         <div> {ReasonReact.string("Second Button")} </div>
+      </Button>
+      <Button bsStyle=`danger icon=`danger>
+        {ReasonReact.string("Danger Button")}
       </Button>
       <ReactJsComponent hide=false />
       {self.state.show ?
