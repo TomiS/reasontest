@@ -34,10 +34,12 @@ module Styles = {
       whiteSpace(nowrap),
     ]);
 };
+open Icons;
 
 [@genType]
 let make =
     (
+      ~iconType: Icons.iconType,
       ~onClick,
       ~disabled=false,
       ~caret=false,
@@ -53,6 +55,6 @@ let make =
   ...component,
   render: _ =>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-      <path d="{icons[type]}" />
+      <path d={Icons.getIconPath(~iconType)} />
     </svg>,
 };
