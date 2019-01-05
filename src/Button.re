@@ -54,19 +54,23 @@ let make =
       ~onClick,
       ~disabled=false,
       ~caret=false,
-      /*
-        ~icon=None,
-        ~tall=false,
-        ~hidden=false,
-        ~bsSize: bsSize=`normal,
-       */
+      ~icon=?,
       ~bsStyle: bsStyle=`default,
       _children,
     ) => {
-  ...component,
-  render: _ =>
-    <button onClick className={Styles.button(~disabled, ~bsStyle)}>
-      <span> ..._children </span>
-      {caret ? <span className="caret" /> : ReasonReact.null}
-    </button>,
+  let iconEl = _ =>
+    switch (icon) {
+    | None => ReasonReact.null
+    | Some(icon) => <Icon iconType=icon />
+    };
+  {
+    ...component,
+
+    render: self =>
+      <button onClick className={Styles.button(~disabled, ~bsStyle)}>
+        {iconEl(self)}
+        <span> ..._children </span>
+        {caret ? <span className="caret" /> : ReasonReact.null}
+      </button>,
+  };
 };

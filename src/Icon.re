@@ -34,27 +34,19 @@ module Styles = {
       whiteSpace(nowrap),
     ]);
 };
-open Icons;
-
 [@genType]
 let make =
     (
       ~iconType: Icons.iconType,
-      ~onClick,
+      ~onClick=?,
       ~disabled=false,
-      ~caret=false,
-      /*
-        ~icon=None,
-        ~tall=false,
-        ~hidden=false,
-        ~bsSize: bsSize=`normal,
-       */
-      ~bsStyle: bsStyle=`default,
+      ~bsSize: bsSize=`normal,
       _children,
     ) => {
   ...component,
+
   render: _ =>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-      <path d={Icons.getIconPath(~iconType)} />
+      <path d={Icons.getIconPath(iconType)} />
     </svg>,
 };

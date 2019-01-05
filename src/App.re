@@ -40,7 +40,10 @@ let make = _children => {
         {ReasonReact.string("First Button")}
       </Button>
       <Button
-        onClick={_event => self.send(Toggle)} disabled=true bsStyle=`warning>
+        icon=`warning
+        onClick={_event => self.send(Toggle)}
+        disabled=true
+        bsStyle=`warning>
         <div> {ReasonReact.string("Second Button")} </div>
       </Button>
       <ReactJsComponent hide=false />

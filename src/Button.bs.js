@@ -4,6 +4,7 @@ import * as Css from "bs-css/src/Css.js";
 import * as React from "react";
 import * as ReactDOMRe from "reason-react/src/ReactDOMRe.js";
 import * as ReasonReact from "reason-react/src/ReasonReact.js";
+import * as Icon$ReactTemplate from "./Icon.bs.js";
 
 var component = ReasonReact.statelessComponent("Button");
 
@@ -82,10 +83,17 @@ var Styles = /* module */[
   /* button */button
 ];
 
-function make(onClick, $staropt$star, $staropt$star$1, $staropt$star$2, _children) {
+function make(onClick, $staropt$star, $staropt$star$1, icon, $staropt$star$2, _children) {
   var disabled = $staropt$star !== undefined ? $staropt$star : false;
   var caret = $staropt$star$1 !== undefined ? $staropt$star$1 : false;
   var bsStyle = $staropt$star$2 !== undefined ? $staropt$star$2 : /* default */465819841;
+  var iconEl = function (param) {
+    if (icon !== undefined) {
+      return ReasonReact.element(undefined, undefined, Icon$ReactTemplate.make(icon, undefined, undefined, undefined, /* array */[]));
+    } else {
+      return null;
+    }
+  };
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -96,11 +104,11 @@ function make(onClick, $staropt$star, $staropt$star$1, $staropt$star$2, _childre
           /* willUnmount */component[/* willUnmount */6],
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
-          /* render */(function (param) {
+          /* render */(function (self) {
               return React.createElement("button", {
                           className: button(disabled, bsStyle),
                           onClick: onClick
-                        }, ReactDOMRe.createElementVariadic("span", undefined, _children), caret ? React.createElement("span", {
+                        }, iconEl(self), ReactDOMRe.createElementVariadic("span", undefined, _children), caret ? React.createElement("span", {
                                 className: "caret"
                               }) : null);
             }),

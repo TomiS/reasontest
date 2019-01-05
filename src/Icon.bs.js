@@ -3,6 +3,7 @@
 import * as Css from "bs-css/src/Css.js";
 import * as React from "react";
 import * as ReasonReact from "reason-react/src/ReasonReact.js";
+import * as Icons$ReactTemplate from "./config/Icons.bs.js";
 
 var component = ReasonReact.statelessComponent("Icon");
 
@@ -51,7 +52,7 @@ function button(disabled, bsStyle) {
 
 var Styles = /* module */[/* button */button];
 
-function make(onClick, $staropt$star, $staropt$star$1, $staropt$star$2, _children) {
+function make(iconType, onClick, $staropt$star, $staropt$star$1, _children) {
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -67,7 +68,7 @@ function make(onClick, $staropt$star, $staropt$star$1, $staropt$star$2, _childre
                           viewBox: "0 0 1024 1024",
                           xmlns: "http://www.w3.org/2000/svg"
                         }, React.createElement("path", {
-                              d: "{icons[type]}"
+                              d: Icons$ReactTemplate.getIconPath(iconType)
                             }));
             }),
           /* initialState */component[/* initialState */10],

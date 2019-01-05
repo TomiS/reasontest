@@ -19,10 +19,8 @@ function getIconPath(iconType) {
   }
 }
 
-var Icons = /* module */[/* getIconPath */getIconPath];
-
 export {
-  Icons ,
+  getIconPath ,
   
 }
 /* No side effect */
