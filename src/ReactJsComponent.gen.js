@@ -3,6 +3,7 @@
  * @generated
  * @nolint
  */
+/* eslint-disable */
 
 // flowlint-next-line nonstrict-import:off
 import ReactJsComponent from './ReactJsComponent';
@@ -13,7 +14,7 @@ import * as React from 'react';
 // $FlowExpectedError: Reason checked type sufficiently
 import * as ReasonReact from 'reason-react/src/ReasonReact.js';
 
-export type Props = {|+hide: boolean|};
+export type Props = {| +hide: boolean |};
 
 // In case of type error, check the type of 'make' in 'ReactJsComponent.re' and the props of './ReactJsComponent'.
 export function ReactJsComponentTypeChecked(props: Props) {

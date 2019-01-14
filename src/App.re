@@ -30,30 +30,33 @@ let make = _children => {
     },
   render: self => {
     <div>
-      <input
-        value={self.state.greeting}
-        onChange={event =>
-          self.send(InputChange(ReactEvent.Form.target(event)##value))
-        }
-      />
-      <Button icon=`help> {ReasonReact.string("Help Button")} </Button>
-      <Button
-        onClick={_event => self.send(Toggle)} bsStyle=`warning icon=`warning>
-        {ReasonReact.string("Warning Button")}
-      </Button>
-      <Button
-        icon=`success
-        onClick={_event => self.send(Toggle)}
-        disabled=true
-        bsStyle=`success>
-        {ReasonReact.string("Success Button")}
-      </Button>
-      <Button bsStyle=`danger icon=`danger>
-        {ReasonReact.string("Danger Button")}
-      </Button>
-      <ReactJsComponent hide=false />
-      {self.state.show ?
-         ReasonReact.string(self.state.greeting) : ReasonReact.null}
-    </div>;
+       <ReactJsComponent hide=false /> </div>;
+      /*
+       {self.state.show ?
+          ReasonReact.string(self.state.greeting) : ReasonReact.null}
+          */
+      /*
+       <input
+         value={self.state.greeting}
+         onChange={event =>
+           self.send(InputChange(ReactEvent.Form.target(event)##value))
+         }
+       />
+       <Button icon=`help> {ReasonReact.string("Help Button")} </Button>
+       <Button
+         onClick={_event => self.send(Toggle)} bsStyle=`warning icon=`warning>
+         {ReasonReact.string("Warning Button")}
+       </Button>
+       <Button
+         icon=`success
+         onClick={_event => self.send(Toggle)}
+         disabled=true
+         bsStyle=`success>
+         {ReasonReact.string("Success Button")}
+       </Button>
+       <Button bsStyle=`danger icon=`danger>
+         {ReasonReact.string("Danger Button")}
+       </Button>
+       */
   },
 };
