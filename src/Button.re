@@ -1,3 +1,4 @@
+[@genType]
 type bsStyle = [
   | `default
   | `primary
@@ -9,6 +10,7 @@ type bsStyle = [
   | `link
 ];
 
+[@genType]
 type bsSize = [ | `normal | `small | `xs];
 
 let component = ReasonReact.statelessComponent("Button");

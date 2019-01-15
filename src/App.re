@@ -17,6 +17,7 @@ let component = ReasonReact.reducerComponent("App");
 
 /* greeting and children are props. `children` isn't used, therefore ignored.
    We ignore it by prepending it with an underscore */
+[@genType]
 let make = _children => {
   /* spread the other default fields of component here and override a few */
   ...component,

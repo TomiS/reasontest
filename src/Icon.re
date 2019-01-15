@@ -1,7 +1,9 @@
+[@genType]
 type bsSize = [ | `normal | `small | `xs];
 
 [@genType]
 type iconType = [ | `help | `success | `info | `warning | `danger];
+
 [@genType]
 let getIconPath = (iconType: iconType): string => {
   switch (iconType) {
