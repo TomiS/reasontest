@@ -7,5 +7,5 @@ yarn install
 yarn clean
 yarn start
 # in another tab
-yarn run webpack
+yarn webpack
 ```
