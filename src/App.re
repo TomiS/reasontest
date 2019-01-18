@@ -31,7 +31,10 @@ let make = _children => {
     },
   render: self => {
     <div>
-       <ReactJsComponent hide=false /> </div>;
+
+        <ReactJsComponent hide=false />
+        <Button icon=`help> {ReasonReact.string("Help Button")} </Button>
+      </div>;
       /*
        {self.state.show ?
           ReasonReact.string(self.state.greeting) : ReasonReact.null}

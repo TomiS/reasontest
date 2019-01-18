@@ -2,6 +2,7 @@
 
 import * as Block from "bs-platform/lib/es6/block.js";
 import * as React from "react";
+import * as Button from "./Button.bs.js";
 import * as ReasonReact from "reason-react/src/ReasonReact.js";
 import * as ReactJsComponentGen from "./ReactJsComponent.gen";
 
@@ -19,7 +20,7 @@ function make(_children) {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (self) {
-              return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, ReactJsComponentGen.make(false, /* array */[])));
+              return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, ReactJsComponentGen.make(false, /* array */[])), ReasonReact.element(undefined, undefined, Button.make(undefined, undefined, undefined, /* help */-989121855, undefined, /* array */["Help Button"])));
             }),
           /* initialState */(function (param) {
               return /* record */[
