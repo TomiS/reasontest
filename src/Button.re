@@ -17,37 +17,38 @@ let component = ReasonReact.statelessComponent("Button");
 
 module Styles = {
   /* Open the Css module, so we can access the style properties below without prefixing them with Css. */
-  open Css;
+  open Emotion;
 
   let getBackgroundColor = (~bsStyle) =>
     switch (bsStyle) {
-    | `default => gray
-    | `primary => green
-    | `success => green
-    | `warning => yellow
-    | `danger => red
-    | `inverse => white
-    | `minimal => white
-    | `link => white
+    | `default => `hex("777777")
+    | `primary => `hex("008800")
+    | `success => `hex("008800")
+    | `warning => `hex("008888")
+    | `danger => `hex("880000")
+    | `inverse => `hex("ffffff")
+    | `minimal => `hex("ffffff")
+    | `link => `hex("ffffff")
     };
 
-  let button = (~disabled, ~bsStyle) =>
-    style([
-      position(relative),
-      display(inlineBlock),
-      boxShadow(~y=px(1), ~inset=true, rgba(255, 255, 255, 0.1)),
+  let button = (~disabled, ~bsStyle) => [%css
+    [
+      position(`relative),
+      display(`inlineBlock),
+      boxShadow(~y=`px(1), ~inset=true, rgba(255, 255, 255, 0.1)),
       borderWidth(px(1)),
-      marginBottom(zero),
-      borderColor(green),
-      borderBottomColor(red),
+      marginBottom(`zero),
+      /* borderColor("green"), */
+      /* borderBottomColor("red"), */
       backgroundColor(getBackgroundColor(bsStyle)),
-      textAlign(center),
-      verticalAlign(middle),
+      textAlign(`center),
+      verticalAlign(`middle),
       cursor(disabled ? `notAllowed : `pointer),
-      backgroundImage(none),
-      borderStyle(solid),
-      whiteSpace(nowrap),
-    ]);
+      backgroundImage(`none),
+      borderStyle(`solid),
+      whiteSpace(`nowrap),
+    ]
+  ];
 };
 
 [@genType]
@@ -70,7 +71,7 @@ let make =
   let iconEl = _ =>
     switch (icon) {
     | None => ReasonReact.null
-    | Some(icon) => <Icon iconType=icon />
+    | Some(icon) => <Icon icon />
     };
   {
     ...component,

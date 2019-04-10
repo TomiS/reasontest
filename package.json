@@ -2,9 +2,8 @@
   "name": "reasontest",
   "version": "0.1.0",
   "scripts": {
-    "gentype": "export BS_CMT_POST_PROCESS_CMD=\"gentype\"",
     "build": "export BS_CMT_POST_PROCESS_CMD=\"gentype\" && bsb -make-world",
-    "start": "export BS_CMT_POST_PROCESS_CMD=\"gentype\" && bsb -make-world -w",
+    "dev": "export BS_CMT_POST_PROCESS_CMD=\"gentype\" && bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack-dev-server",
@@ -17,10 +16,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bs-css": "^8.0.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "reason-react": ">=0.4.0"
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "reason-react": ">=0.7.0",
+    "emotion": "^10.0.9",
+    "bs-emotion": "^0.1.1"
   },
   "devDependencies": {
     "@babel/core": "7.1.2",
@@ -28,12 +28,13 @@
     "@babel/preset-flow": "7.0.0",
     "@babel/preset-react": "7.0.0",
     "babel-loader": "8.0.0",
-    "bs-platform": "^4.0.18",
+    "bs-platform": "^5.0.1",
+    "bs-emotion-ppx": "^0.0.6",
     "clean-webpack-plugin": "^1.0.0",
-    "gentype": "^2.4.1",
+    "gentype": "2.19.0",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "4.19.1",
-    "webpack-cli": "2.1.4",
+    "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.14"
   }
 }

@@ -16,6 +16,9 @@ class ReactJsComponent extends React.PureComponent<Props> {
       <React.Fragment>
         <Button bsStyle='danger' icon='danger'>Danger Button from JS Component</Button>
         <Icon iconType='danger' />
+        <Button bsStyle='warning' icon='warning'>Danger Button from JS Component</Button>
+        <Button bsStyle='success' icon='success'>Danger Button from JS Component</Button>
+        <Button bsStyle='default' icon='info'>Danger Button from JS Component</Button>
       </React.Fragment>
     );
   }

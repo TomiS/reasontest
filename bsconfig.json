@@ -14,15 +14,18 @@
     }
   ],
   "suffix": ".bs.js",
-  "namespace": false,
+  "namespace": true,
   "bsc-flags": [
     "-bs-super-errors"
   ],
   "bs-dependencies": [
     "reason-react",
-    "bs-css"
+    "bs-emotion"
   ],
   "refmt": 3,
+  "ppx-flags": [
+    "bs-emotion-ppx/ppx"
+  ],
   "gentypeconfig": {
     "language": "flow",
     "module": "es6",

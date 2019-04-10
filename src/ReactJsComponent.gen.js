@@ -4,6 +4,8 @@
  * @nolint
  */
 /* eslint-disable */
+// $FlowExpectedError: Reason checked type sufficiently
+type $any = any;
 
 // flowlint-next-line nonstrict-import:off
 import ReactJsComponent from './ReactJsComponent';
@@ -22,4 +24,4 @@ export function ReactJsComponentTypeChecked(props: Props) {
 }
 
 // Export 'make' early to allow circular import from the '.bs.js' file.
-export const make: mixed = function _(hide, children) { return ReasonReact.wrapJsForReason(ReactJsComponent, {hide: hide}, children); };
+export const make: mixed = function (hide: $any, children: $any) { return ReasonReact.wrapJsForReason(ReactJsComponent, {hide: hide}, children); };

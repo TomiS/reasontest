@@ -1,5 +1,5 @@
 [@genType]
-type bsSize = [ | `normal | `small | `xs];
+type size = [ | `medium | `small | `large | `xlarge];
 
 [@genType]
 type iconType = [ | `help | `success | `info | `warning | `danger];
@@ -18,22 +18,23 @@ let getIconPath = (iconType: iconType): string => {
 let component = ReasonReact.statelessComponent("Icon");
 
 module Styles = {
-  open Css;
-  let svg = (~disabled, ~bsSize) =>
-    style([
-      width(px(20)),
-      height(px(20)),
-      position(relative),
-      display(inlineBlock),
-      marginBottom(zero),
-      textAlign(center),
-      verticalAlign(textTop),
-      whiteSpace(nowrap),
-    ]);
+  open Emotion;
+  let svg = (~disabled, ~bsSize) => [%css
+    [
+      width(`px(20)),
+      height(`px(20)),
+      position(`relative),
+      display(`inlineBlock),
+      marginBottom(`zero),
+      textAlign(`center),
+      verticalAlign(`textTop),
+      whiteSpace(`nowrap),
+    ]
+  ];
 };
 [@genType]
 let make =
-    (~iconType: iconType, ~disabled=false, ~bsSize: bsSize=`normal, _children) => {
+    (~icon: iconType, ~disabled=false, ~bsSize: size=`medium, _children) => {
   ...component,
 
   render: _ =>
@@ -41,6 +42,6 @@ let make =
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1024 1024"
       className={Styles.svg(~disabled, ~bsSize)}>
-      <path d={getIconPath(iconType)} />
+      <path d={getIconPath(icon)} />
     </svg>,
 };
