@@ -5,7 +5,7 @@
 ```sh
 yarn install
 yarn clean
-yarn start
+yarn dev
 # in another tab
 yarn webpack
 ```
