@@ -42,17 +42,17 @@ let make = _children => {
       />
       <Button icon=`help> {ReasonReact.string("Help Button")} </Button>
       <Button
-        onClick={_event => self.send(Toggle)} bsStyle=`warning icon=`warning>
+        onClick={_event => self.send(Toggle)} variant=`warning icon=`warning>
         {ReasonReact.string("Warning Button")}
       </Button>
       <Button
         icon=`success
         onClick={_event => self.send(Toggle)}
         disabled=true
-        bsStyle=`success>
+        variant=`success>
         {ReasonReact.string("Success Button")}
       </Button>
-      <Button bsStyle=`danger icon=`danger>
+      <Button variant=`danger icon=`danger>
         {ReasonReact.string("Danger Button")}
       </Button>
     </div>;

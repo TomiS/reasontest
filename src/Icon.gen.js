@@ -22,29 +22,29 @@ import * as ReasonReact from 'reason-react/src/ReasonReact.js';
 
 export type size = "medium" | "small" | "large" | "xlarge";
 
-export type iconType = 
+export type icon = 
   | "help"
   | "success"
   | "info"
   | "warning"
   | "danger";
 
-export const getIconPath: (iconType) => string = function (Arg1: $any) {
+export const getIconPath: (icon) => string = function (Arg1: $any) {
   const result = IconBS.getIconPath($$toRE174527891[Arg1]);
   return result
 };
 
 export type Props = {|
-  +icon: iconType, 
+  +icon: icon, 
   +disabled?: boolean, 
-  +bsSize?: size, 
+  +size?: size, 
   +children?: mixed
 |};
 
 export const component: React$ComponentType<Props> = ReasonReact.wrapReasonForJs(
   IconBS.component,
   (function _(jsProps: Props) {
-     return Curry._4(IconBS.make, $$toRE174527891[jsProps.icon], jsProps.disabled, (jsProps.bsSize == null ? undefined : $$toRE930253789[jsProps.bsSize]), jsProps.children);
+     return Curry._4(IconBS.make, $$toRE174527891[jsProps.icon], jsProps.disabled, (jsProps.size == null ? undefined : $$toRE930253789[jsProps.size]), jsProps.children);
   }));
 
 export default component;

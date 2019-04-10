@@ -1,5 +1,5 @@
 [@genType]
-type bsStyle = [
+type variant = [
   | `default
   | `primary
   | `success
@@ -11,7 +11,7 @@ type bsStyle = [
 ];
 
 [@genType]
-type bsSize = [ | `normal | `small | `xs];
+type size = [ | `medium | `small | `large];
 
 let component = ReasonReact.statelessComponent("Button");
 
@@ -19,8 +19,8 @@ module Styles = {
   /* Open the Css module, so we can access the style properties below without prefixing them with Css. */
   open Emotion;
 
-  let getBackgroundColor = (~bsStyle) =>
-    switch (bsStyle) {
+  let getBackgroundColor = (~variant) =>
+    switch (variant) {
     | `default => `hex("777777")
     | `primary => `hex("008800")
     | `success => `hex("008800")
@@ -31,7 +31,7 @@ module Styles = {
     | `link => `hex("ffffff")
     };
 
-  let button = (~disabled, ~bsStyle) => [%css
+  let button = (~disabled, ~variant) => [%css
     [
       position(`relative),
       display(`inlineBlock),
@@ -40,7 +40,7 @@ module Styles = {
       marginBottom(`zero),
       /* borderColor("green"), */
       /* borderBottomColor("red"), */
-      backgroundColor(getBackgroundColor(bsStyle)),
+      backgroundColor(getBackgroundColor(variant)),
       textAlign(`center),
       verticalAlign(`middle),
       cursor(disabled ? `notAllowed : `pointer),
@@ -58,7 +58,8 @@ let make =
       ~disabled=false,
       ~caret=false,
       ~icon=?,
-      ~bsStyle: bsStyle=`default,
+      ~variant: variant=`default,
+      ~size: size=`medium,
       _children,
     ) => {
   let onButtonClick = (event, self) => {
@@ -77,12 +78,12 @@ let make =
     ...component,
 
     render: self =>
-      <button
+      <Clickable
         onClick={self.handle(onButtonClick)}
-        className={Styles.button(~disabled, ~bsStyle)}>
+        className={Styles.button(~disabled, ~variant)}>
         {iconEl(self)}
         <span> ..._children </span>
         {caret ? <span className="caret" /> : ReasonReact.null}
-      </button>,
+      </Clickable>,
   };
 };

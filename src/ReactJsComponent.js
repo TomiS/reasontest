@@ -14,11 +14,11 @@ class ReactJsComponent extends React.PureComponent<Props> {
     }
     return (
       <React.Fragment>
-        <Button bsStyle='danger' icon='danger'>Danger Button from JS Component</Button>
+        <Button variant='danger' icon='danger'>Danger Button from JS Component</Button>
         <Icon iconType='danger' />
-        <Button bsStyle='warning' icon='warning'>Danger Button from JS Component</Button>
-        <Button bsStyle='success' icon='success'>Danger Button from JS Component</Button>
-        <Button bsStyle='default' icon='info'>Danger Button from JS Component</Button>
+        <Button variant='warning' icon='warning'>Warning Button from JS Component</Button>
+        <Button variant='success' icon='success'>Success Button from JS Component</Button>
+        <Button variant='default' icon='info'>Info Button from JS Component</Button>
       </React.Fragment>
     );
   }
