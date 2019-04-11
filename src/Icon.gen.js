@@ -38,13 +38,14 @@ export type Props = {|
   +icon: icon, 
   +disabled?: boolean, 
   +size?: size, 
+  +className: mixed, 
   +children?: mixed
 |};
 
 export const component: React$ComponentType<Props> = ReasonReact.wrapReasonForJs(
   IconBS.component,
   (function _(jsProps: Props) {
-     return Curry._4(IconBS.make, $$toRE174527891[jsProps.icon], jsProps.disabled, (jsProps.size == null ? undefined : $$toRE930253789[jsProps.size]), jsProps.children);
+     return Curry._5(IconBS.make, $$toRE174527891[jsProps.icon], jsProps.disabled, (jsProps.size == null ? undefined : $$toRE930253789[jsProps.size]), jsProps.className, jsProps.children);
   }));
 
 export default component;

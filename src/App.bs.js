@@ -21,17 +21,11 @@ function make(_children) {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (self) {
-              var match = self[/* state */1][/* show */1];
-              return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, ReactJsComponent$ReactTemplate.make(false, /* array */[])), match ? self[/* state */1][/* greeting */2] : null, React.createElement("input", {
-                              value: self[/* state */1][/* greeting */2],
-                              onChange: (function ($$event) {
-                                  return Curry._1(self[/* send */3], /* InputChange */[$$event.target.value]);
-                                })
-                            }), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, /* help */-989121855, undefined, undefined, /* array */["Help Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
+              return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, ReactJsComponent$ReactTemplate.make(false, /* array */[])), React.createElement("br", undefined), React.createElement("br", undefined), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, /* help */-989121855, undefined, undefined, /* array */["Default Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, undefined, /* primary */58474434, undefined, /* array */["Primary Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
                                     return Curry._1(self[/* send */3], /* Toggle */1);
-                                  }), undefined, undefined, /* warning */164354652, /* warning */164354652, undefined, /* array */["Warning Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
+                                  }), true, undefined, /* success */944645571, /* success */944645571, undefined, /* array */["Success Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make((function (_event) {
                                     return Curry._1(self[/* send */3], /* Toggle */1);
-                                  }), true, undefined, /* success */944645571, /* success */944645571, undefined, /* array */["Success Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, /* danger */512905955, /* danger */512905955, undefined, /* array */["Danger Button"])));
+                                  }), undefined, undefined, /* warning */164354652, /* warning */164354652, undefined, /* array */["Warning Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, /* danger */512905955, /* danger */512905955, undefined, /* array */["Danger Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, undefined, /* inverse */1039223728, undefined, /* array */["Inverse Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, undefined, /* minimal */-873810847, undefined, /* array */["Minimal Button"])), ReasonReact.element(undefined, undefined, Button$ReactTemplate.make(undefined, undefined, undefined, undefined, /* link */-944564230, undefined, /* array */["Link Button"])));
             }),
           /* initialState */(function (param) {
               return /* record */[

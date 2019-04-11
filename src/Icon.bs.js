@@ -80,7 +80,7 @@ function svg(disabled, size) {
 
 var Styles = /* module */[/* svg */svg];
 
-function make(icon, $staropt$star, $staropt$star$1, _children) {
+function make(icon, $staropt$star, $staropt$star$1, className, _children) {
   var disabled = $staropt$star !== undefined ? $staropt$star : false;
   var size = $staropt$star$1 !== undefined ? $staropt$star$1 : /* medium */-20425611;
   return /* record */[

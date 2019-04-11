@@ -32,18 +32,21 @@ let make = _children => {
   render: self => {
     <div>
       <ReactJsComponent hide=false />
-      {self.state.show
-         ? ReasonReact.string(self.state.greeting) : ReasonReact.null}
-      <input
-        value={self.state.greeting}
-        onChange={event =>
-          self.send(InputChange(ReactEvent.Form.target(event)##value))
-        }
-      />
-      <Button icon=`help> {ReasonReact.string("Help Button")} </Button>
-      <Button
-        onClick={_event => self.send(Toggle)} variant=`warning icon=`warning>
-        {ReasonReact.string("Warning Button")}
+      /*
+       {self.state.show
+          ? ReasonReact.string(self.state.greeting) : ReasonReact.null}
+       <input
+         value={self.state.greeting}
+         onChange={event =>
+           self.send(InputChange(ReactEvent.Form.target(event)##value))
+         }
+       />
+       */
+      <br />
+      <br />
+      <Button icon=`help> {ReasonReact.string("Default Button")} </Button>
+      <Button variant=`primary>
+        {ReasonReact.string("Primary Button")}
       </Button>
       <Button
         icon=`success
@@ -52,9 +55,20 @@ let make = _children => {
         variant=`success>
         {ReasonReact.string("Success Button")}
       </Button>
+      <Button
+        onClick={_event => self.send(Toggle)} variant=`warning icon=`warning>
+        {ReasonReact.string("Warning Button")}
+      </Button>
       <Button variant=`danger icon=`danger>
         {ReasonReact.string("Danger Button")}
       </Button>
+      <Button variant=`inverse>
+        {ReasonReact.string("Inverse Button")}
+      </Button>
+      <Button variant=`minimal>
+        {ReasonReact.string("Minimal Button")}
+      </Button>
+      <Button variant=`link> {ReasonReact.string("Link Button")} </Button>
     </div>;
   },
 };

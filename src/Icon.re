@@ -42,7 +42,8 @@ module Styles = {
   ];
 };
 [@genType]
-let make = (~icon: icon, ~disabled=false, ~size: size=`medium, _children) => {
+let make =
+    (~icon: icon, ~disabled=false, ~size: size=`medium, ~className, _children) => {
   ...component,
 
   render: _ =>

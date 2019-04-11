@@ -6,9 +6,81 @@ import * as Emotion from "bs-emotion/src/Emotion.bs.js";
 import * as ReactDOMRe from "reason-react/src/ReactDOMRe.js";
 import * as ReasonReact from "reason-react/src/ReasonReact.js";
 import * as Icon$ReactTemplate from "./Icon.bs.js";
+import * as Theme$ReactTemplate from "./Theme.bs.js";
 import * as Clickable$ReactTemplate from "./Clickable.bs.js";
 
 var component = ReasonReact.statelessComponent("Button");
+
+function getColor(variant, isHovering) {
+  if (variant !== -873810847) {
+    if (variant >= 164354652) {
+      if (variant !== 512905955) {
+        return Theme$ReactTemplate.getColor(/* text */-856044371);
+      } else {
+        return /* `hex */[
+                5194459,
+                "ffffff"
+              ];
+      }
+    } else if (variant >= 58474434) {
+      return /* `hex */[
+              5194459,
+              "ffffff"
+            ];
+    } else {
+      return Theme$ReactTemplate.getColor(/* primary */58474434);
+    }
+  } else if (isHovering) {
+    return Theme$ReactTemplate.getColor(/* primary */58474434);
+  } else {
+    return /* `hex */[
+            5194459,
+            "777777"
+          ];
+  }
+}
+
+function getPadding(isActive) {
+  if (isActive) {
+    return /* tuple */[
+            /* `px */[
+              25096,
+              7
+            ],
+            /* `px */[
+              25096,
+              12
+            ],
+            /* `px */[
+              25096,
+              5
+            ],
+            /* `px */[
+              25096,
+              12
+            ]
+          ];
+  } else {
+    return /* tuple */[
+            /* `px */[
+              25096,
+              6
+            ],
+            /* `px */[
+              25096,
+              12
+            ],
+            /* `px */[
+              25096,
+              6
+            ],
+            /* `px */[
+              25096,
+              12
+            ]
+          ];
+  }
+}
 
 function getBackgroundColor(variant) {
   if (variant >= 465819841) {
@@ -63,29 +135,50 @@ function button(disabled, variant) {
                 /* :: */[
                   Emotion.display(/* inlineBlock */-147785676),
                   /* :: */[
-                    Emotion.boxShadow(undefined, /* `px */[
-                          25096,
-                          1
-                        ], undefined, undefined, true, Emotion.rgba(255, 255, 255, 0.1)),
+                    Emotion.color(getColor(variant, false)),
                     /* :: */[
-                      Emotion.borderWidth(Emotion.px(1)),
+                      Emotion.borderWidth(/* `px */[
+                            25096,
+                            1
+                          ]),
                       /* :: */[
                         Emotion.marginBottom(/* zero */-789508312),
                         /* :: */[
-                          Emotion.backgroundColor(getBackgroundColor(variant)),
+                          Emotion.lineHeight(/* `px */[
+                                25096,
+                                24
+                              ]),
                           /* :: */[
-                            Emotion.textAlign(/* center */98248149),
+                            Emotion.padding4(/* `px */[
+                                  25096,
+                                  7
+                                ], /* `px */[
+                                  25096,
+                                  12
+                                ], /* `px */[
+                                  25096,
+                                  5
+                                ], /* `px */[
+                                  25096,
+                                  12
+                                ]),
                             /* :: */[
-                              Emotion.verticalAlign(/* middle */-866200747),
+                              Emotion.backgroundColor(getBackgroundColor(variant)),
                               /* :: */[
-                                Emotion.cursor(disabled ? /* notAllowed */939907157 : /* pointer */-786317123),
+                                Emotion.textAlign(/* center */98248149),
                                 /* :: */[
-                                  Emotion.backgroundImage(/* none */-922086728),
+                                  Emotion.verticalAlign(/* middle */-866200747),
                                   /* :: */[
-                                    Emotion.borderStyle(/* solid */12956715),
+                                    Emotion.cursor(disabled ? /* notAllowed */939907157 : /* pointer */-786317123),
                                     /* :: */[
-                                      Emotion.whiteSpace(/* nowrap */867913355),
-                                      /* [] */0
+                                      Emotion.backgroundImage(/* none */-922086728),
+                                      /* :: */[
+                                        Emotion.borderStyle(/* solid */12956715),
+                                        /* :: */[
+                                          Emotion.whiteSpace(/* nowrap */867913355),
+                                          /* [] */0
+                                        ]
+                                      ]
                                     ]
                                   ]
                                 ]
@@ -101,15 +194,32 @@ function button(disabled, variant) {
             ]);
 }
 
+function iconInButton(size) {
+  return Emotion.css(undefined, /* :: */[
+              Emotion.label("iconInButton"),
+              /* :: */[
+                Emotion.marginRight(/* `px */[
+                      25096,
+                      5
+                    ]),
+                /* [] */0
+              ]
+            ]);
+}
+
 var Styles = /* module */[
+  /* getColor */getColor,
+  /* getPadding */getPadding,
   /* getBackgroundColor */getBackgroundColor,
-  /* button */button
+  /* button */button,
+  /* iconInButton */iconInButton
 ];
 
 function make(onClick, $staropt$star, $staropt$star$1, icon, $staropt$star$2, $staropt$star$3, _children) {
   var disabled = $staropt$star !== undefined ? $staropt$star : false;
   var caret = $staropt$star$1 !== undefined ? $staropt$star$1 : false;
   var variant = $staropt$star$2 !== undefined ? $staropt$star$2 : /* default */465819841;
+  var size = $staropt$star$3 !== undefined ? $staropt$star$3 : /* medium */-20425611;
   var onButtonClick = function ($$event, self) {
     if (onClick !== undefined) {
       Curry._1(onClick, $$event);
@@ -117,9 +227,10 @@ function make(onClick, $staropt$star, $staropt$star$1, icon, $staropt$star$2, $s
     console.log(self);
     return /* () */0;
   };
+  var iconClass = iconInButton(size);
   var iconEl = function (param) {
     if (icon !== undefined) {
-      return ReasonReact.element(undefined, undefined, Icon$ReactTemplate.make(icon, undefined, undefined, /* array */[]));
+      return ReasonReact.element(undefined, undefined, Icon$ReactTemplate.make(icon, undefined, undefined, iconClass, /* array */[]));
     } else {
       return null;
     }
