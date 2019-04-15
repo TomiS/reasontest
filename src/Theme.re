@@ -1,5 +1,3 @@
-// open Emotion;
-
 type color = [ | `primary | `onPrimary];
 
 let getColor = (~color) => {

@@ -2,8 +2,8 @@
   "name": "reasontest",
   "version": "0.1.0",
   "scripts": {
-    "build": "export BS_CMT_POST_PROCESS_CMD=\"gentype\" && bsb -make-world",
-    "dev": "export BS_CMT_POST_PROCESS_CMD=\"gentype\" && bsb -make-world -w",
+    "build": "bsb -make-world",
+    "dev": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack-dev-server",
