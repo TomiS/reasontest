@@ -7,3 +7,5 @@ npm-debug.log
 /build/
 .graphql_ppx_cache/
 yarn-error.log
+*.bs.js
+*.gen.js
