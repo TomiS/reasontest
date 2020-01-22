@@ -1,24 +1,9 @@
 [@genType]
-type variant = [
-  | `default
-  | `primary
-  | `success
-  | `warning
-  | `danger
-  | `inverse
-  | `minimal
-  | `link
-];
-
-[@genType]
 type size = [ | `medium | `small | `large];
 
-let component = ReasonReact.statelessComponent("Button");
-
 module Styles = {
+  open Css;
   /* Open the Css module, so we can access the style properties below without prefixing them with Css. */
-  open Emotion;
-
   let getColor = (~variant, ~isHovering) => {
     switch (variant) {
     | `inverse
@@ -39,7 +24,7 @@ module Styles = {
       : (`px(6), `px(12), `px(6), `px(12));
   };
 
-  let getBackgroundColor = (~variant) =>
+  let getBackgroundColor = (~variant: Config.buttonType) =>
     switch (variant) {
     | `default => `hex("777777")
     | `primary => `hex("008800")
@@ -51,8 +36,8 @@ module Styles = {
     | `link => `hex("ffffff")
     };
 
-  let button = (~disabled, ~variant) => [%css
-    [
+  let getRoot = (~disabled: bool, ~variant: Config.buttonType) =>
+    style([
       position(`relative),
       display(`inlineBlock),
       color(getColor(~variant, ~isHovering=false)),
@@ -60,7 +45,12 @@ module Styles = {
       borderWidth(`px(1)),
       marginBottom(`zero),
       lineHeight(`px(24)),
-      padding4(`px(7), `px(12), `px(5), `px(12)),
+      padding4(
+        ~top=`px(7),
+        ~left=`px(12),
+        ~bottom=`px(5),
+        ~right=`px(12),
+      ),
       /* active(padding(getPadding(~isActive=true))) */
       /* borderColor("green"), */
       /* borderBottomColor("red"), */
@@ -71,46 +61,39 @@ module Styles = {
       backgroundImage(`none),
       borderStyle(`solid),
       whiteSpace(`nowrap),
-    ]
-  ];
+    ]);
 
-  let iconInButton = (~size) => [%css [marginRight(`px(5))]];
+  let iconInButton = (~size: size) => style([marginRight(`px(5))]);
 };
 
 [@genType]
+[@react.component]
 let make =
     (
       ~onClick=?,
-      ~disabled=false,
+      ~disabled: bool=false,
       ~caret=false,
-      ~icon=?,
-      ~variant: variant=`default,
+      ~icon: option(Config.iconType)=?,
+      ~variant: Config.buttonType=`default,
       ~size: size=`medium,
-      _children,
+      ~children,
     ) => {
-  let onButtonClick = (event, self) => {
+  let onButtonClick = event => {
     switch (onClick) {
     | None => ()
     | Some(onClick) => onClick(event)
     };
-    Js.log(self);
   };
   let iconClass = Styles.iconInButton(~size);
   let iconEl = _ =>
     switch (icon) {
-    | None => ReasonReact.null
-    | Some(icon) => <Icon icon className=iconClass />
+    | None => React.null
+    | Some(i) => <Icon icon=i className=iconClass />
     };
-  {
-    ...component,
-
-    render: self =>
-      <Clickable
-        onClick={self.handle(onButtonClick)}
-        className={Styles.button(~disabled, ~variant)}>
-        {iconEl(self)}
-        <span> ..._children </span>
-        {caret ? <span className="caret" /> : ReasonReact.null}
-      </Clickable>,
-  };
+  <Clickable
+    onClick=onButtonClick className={Styles.getRoot(~disabled, ~variant)}>
+    {iconEl()}
+    <span> children </span>
+    {caret ? <span className="caret" /> : React.null}
+  </Clickable>;
 };

@@ -1,7 +1,7 @@
 {
-  "name": "react-template",
+  "name": "ReasonTest",
   "reason": {
-    "react-jsx": 2
+    "react-jsx": 3
   },
   "sources": {
     "dir": "src",
@@ -14,19 +14,14 @@
     }
   ],
   "suffix": ".bs.js",
-  "namespace": true,
   "bsc-flags": [
     "-bs-super-errors"
   ],
   "bs-dependencies": [
     "reason-react",
-    "bs-emotion",
-    "re-classnames"
+    "bs-css"
   ],
   "refmt": 3,
-  "ppx-flags": [
-    "bs-emotion-ppx/ppx"
-  ],
   "gentypeconfig": {
     "language": "flow",
     "module": "es6",
