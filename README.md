@@ -3,9 +3,11 @@
 ## Run Project
 
 ```sh
+# Run in the first console window
 yarn install
 yarn clean
+yarn watch
+# Run in the second another console window
 yarn dev
-# in another tab
-yarn webpack
 ```
+Opens a webpage in http://localhost:9000
