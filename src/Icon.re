@@ -14,10 +14,10 @@ let getIconPath = (icon: Config.iconType): string => {
 
 let getIconSize = (size: size) => {
   switch (size) {
-  | `small => `px(18)
-  | `medium => `px(20)
-  | `large => `px(36)
-  | `xlarge => `px(48)
+  | `small => Css.px(18)
+  | `medium => Css.px(20)
+  | `large => Css.px(36)
+  | `xlarge => Css.px(48)
   };
 };
 
@@ -28,10 +28,10 @@ module Styles = {
       label("Icon"),
       width(getIconSize(size)),
       height(getIconSize(size)),
-      position(`relative),
+      position(Css.relative),
       /* display(`inlineBlock), */
-      marginBottom(`zero),
-      textAlign(`center),
+      marginBottom(Css.zero),
+      textAlign(Css.center),
       verticalAlign(`top),
       whiteSpace(`nowrap),
     ]);

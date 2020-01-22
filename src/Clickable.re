@@ -30,7 +30,9 @@ let make = (~onClick=?, ~disabled=false, ~className: string=?, ~children) => {
     | Some(onClick) => onClick(event)
     };
   };
-  <button onClick=onButtonClick className={Styles.getRoot(~disabled)}>
+  <button
+    onClick=onButtonClick
+    className={Css.merge([Styles.getRoot(~disabled), className])}>
     children
   </button>;
 };
