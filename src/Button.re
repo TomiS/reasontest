@@ -83,14 +83,14 @@ let make =
     };
   };
   let iconClass = Styles.iconInButton(~size);
-  let iconEl = _ =>
+  let renderIcon = _ =>
     switch (icon) {
     | None => React.null
     | Some(i) => <Icon icon=i className=iconClass />
     };
   <Clickable
     onClick=onButtonClick className={Styles.getRoot(~disabled, ~variant)}>
-    {iconEl()}
+    {renderIcon()}
     <span> children </span>
     {caret ? <span className="caret" /> : React.null}
   </Clickable>;
