@@ -23,7 +23,9 @@ module Styles = {
 
 [@genType]
 [@react.component]
-let make = (~onClick=?, ~disabled=false, ~className: string=?, ~children) => {
+let make =
+    (~onClick=?, ~disabled=false, ~className: option(string)=?, ~children) => {
+  let className = className->Belt.Option.getWithDefault("");
   let onButtonClick = event => {
     switch (onClick) {
     | None => ()

@@ -19,6 +19,7 @@
   ],
   "bs-dependencies": [
     "reason-react",
+    "bs-css-emotion",
     "bs-css"
   ],
   "refmt": 3,

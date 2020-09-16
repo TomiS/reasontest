@@ -43,8 +43,9 @@ let make =
       ~icon: Config.iconType,
       ~disabled=false,
       ~size: size=`medium,
-      ~className: string=?,
+      ~className: option(string)=?,
     ) => {
+  let className = className->Belt.Option.getWithDefault("");
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1024 1024"
